@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.shortcuts import render, get_object_or_404,redirect
 from .models import Item, Category
 from .forms import NewItemForm, EditItemForm
+from .recommendations import recommend_items
 
 
 # Create your views here.
@@ -79,3 +80,19 @@ def delete(request, pk):
     item.delete()
 
     return redirect('dashboard:index')
+
+    
+    def detail(request, pk):
+        item = get_object_or_404(Item, pk=pk)
+
+            # Existing related items (category-based)
+        related_items = Item.objects.filter(
+            category=item.category
+        ).exclude(id=item.id)[:3]
+
+        recommendations = recommend_items(request.user)
+        return render(request, 'item/detail.html', {
+            'item': item,
+            'related_items': related_items,
+            'recommendations': recommendations
+        })

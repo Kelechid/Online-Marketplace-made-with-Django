@@ -37,6 +37,7 @@
     <h2 class="mb-12 text-2xl text-center">Related item</h2>
 
     <div class="grid grid-cols-3 gap-3">
+    {% if related_items %}
         {% for item in related_items %}
             <div>
                 <a href="{% url 'item:detail' item.id %}">
@@ -52,7 +53,32 @@
                 </a>
             </div>
         {% endfor %}
+    {% endif %}
     </div>
 </div>
+
+{% if recommendations %}
+<div class="mt-12 px-6 py-12 bg-gray-100 rounded-xl">
+    <h2 class="mb-12 text-2xl text-center">Recommended for you</h2>
+
+    <div class="grid grid-cols-3 gap-3">
+        {% for rec in recommendations %}
+            <div>
+                <a href="{% url 'item:detail' rec.id %}">
+                    <div>
+                        <img src="{{ rec.image.url }}" class="rounded-xl">
+                    </div>
+
+                    <div class="p-6 bg-white rounded-b-xl">
+                        <h2 class="text-2xl">{{ rec.name }}</h2>
+                        <p class="text-gray-500">Price: {{ rec.price }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
 
 {% endblock %}
