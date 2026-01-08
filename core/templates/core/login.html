@@ -1,52 +1,58 @@
 {% extends 'core/base.html' %}
-
 {% load socialaccount %}
 
-
-{% block title %}Sign up{% endblock %}
+{% block title %}Log in{% endblock %}
 
 {% block content %}
-<div class="w-1/3 my-6 mx-auto p-6 bg-gray-100 rounded-xl">
-    <h1 class="mb-6 text-3xl">Log in</h1>
+<div class="w-1/3 my-12 mx-auto p-8 bg-gray-100 rounded-xl shadow">
 
-    <form method="post" action=".">
+    <h1 class="mb-6 text-3xl font-semibold">Log in</h1>
+
+    <form method="post">
         {% csrf_token %}
 
-
-        <div class="mb-3">
-            <label class="inline-block mb-2">Username</label><br>
+        <div class="mb-4">
+            <label class="block mb-2 font-medium">Username</label>
             {{ form.username }}
         </div>
 
-        <div class="mb-3">
-            <label class="inline-block mb-2">Password</label><br>
+        <div class="mb-6">
+            <label class="block mb-2 font-medium">Password</label>
             {{ form.password }}
         </div>
 
         {% if form.errors or form.non_field_errors %}
-            <div class="mb-3 p-6 bg-red-100 rounded-xl">
+            <div class="mb-4 p-4 bg-red-100 rounded-lg text-sm">
                 {% for field in form %}
                     {{ field.errors }}
                 {% endfor %}
-
                 {{ form.non_field_errors }}
             </div>
-
         {% endif %}
 
-        <button class="py-4 px-8 text-lg bg-teal-500  hover:bg-teal-700 rounded-xl text-white">Submit</button>
+        <button
+            class="w-full py-3 text-lg bg-teal-500 hover:bg-teal-700 text-white rounded-xl font-semibold">
+            Submit
+        </button>
     </form>
-    <hr class="my-6">
 
-    <div class="text-center">
-        <p class="mb-4 text-gray-600">Or log in with</p>
+    <div class="my-8 border-t"></div>
 
-        <a href="{% provider_login_url 'google' %}"
-            class="inline-block px-6 py-3 text-lg font-semibold bg-red-500 hover:bg-red-600 text-white rounded-xl">
-            Google
+    <p class="mb-4 text-center text-gray-600">Or log in with</p>
+
+    <!-- ✅ GOOGLE SIGN-IN BUTTON -->
+    <div class="flex justify-center">
+        <a href="{% provider_login_url 'google' %}" class="google-btn">
+            <div class="google-icon-wrapper">
+                <img
+                    class="google-icon"
+                    src="https://developers.google.com/identity/images/g-logo.png"
+                    alt="Google logo"
+                />
+            </div>
+            <span class="google-btn-text">Sign in with Google</span>
         </a>
     </div>
-
 
 </div>
 {% endblock %}

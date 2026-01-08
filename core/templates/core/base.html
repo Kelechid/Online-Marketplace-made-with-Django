@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -7,8 +6,53 @@
 
         <script src="https://cdn.tailwindcss.com"></script>
 
-        <title>{% block title %} {% endblock %} | Puddle</title>
+        <!-- Google Sign-In Button Styles -->
+        <style>
+            .google-btn {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                max-width: 420px;
+                height: 50px;
+                background-color: #4285f4;
+                border-radius: 4px;
+                box-shadow: 0 2px 4px rgba(0,0,0,.25);
+                text-decoration: none;
+                transition: background-color 0.2s ease;
+            }
+
+            .google-btn:hover {
+                background-color: #357ae8;
+            }
+
+            .google-icon-wrapper {
+                width: 50px;
+                height: 50px;
+                background-color: #ffffff;
+                border-radius: 4px 0 0 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .google-icon {
+                width: 18px;
+                height: 18px;
+            }
+
+            .google-btn-text {
+                flex: 1;
+                text-align: center;
+                color: #ffffff;
+                font-size: 15px;
+                font-weight: 500;
+                letter-spacing: 0.2px;
+            }
+        </style>
+
+        <title>{% block title %}{% endblock %} | Puddle</title>
     </head>
+
 
     <body>
         <nav class="py-6 px-6 flex justify-between items-center border-b border-gray-200">
