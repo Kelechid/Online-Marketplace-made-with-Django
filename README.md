@@ -2,7 +2,7 @@
 
 **Status:** *Work in Progress — Early Stage MVP*
 
-This repository hosts an ongoing project — an online marketplace built with Django, React, and modern web technologies. More features and improvements are planned, as this project is part of a broader mission: to *master backend architectures, API design, full-stack systems, and real-world engineering skills* — not just to launch another marketplace website.
+This repository hosts an ongoing project — an online marketplace built with Django, React, and modern web technologies. More features and improvements are planned, as this project is part of a broader mission: to *master backend architectures, API design, full-stack systems, and real-world engineering skills* not just to launch another marketplace website.
 
 ---
 
@@ -80,8 +80,6 @@ Here’s a high-level overview of the project folders:
 ├── frontend/               # React frontend app (if present)
 ├── db.sqlite3              # Development database
 ```
-
-*(Your folder names might differ — adjust this section accordingly.)*
 
 ---
 
