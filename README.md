@@ -1,7 +1,3 @@
-Here’s a **professional, detailed README** you can use for your **Online Marketplace made with Django** — written in a way that highlights the technical aspects *and* your learning journey and goals.
-
----
-
 # 🛒 Online Marketplace (Django + React + Tailwind)
 
 **Status:** *Work in Progress — Early Stage MVP*
